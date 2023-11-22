@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
-public class DrinkServiceImpl implements DrinkService{
+public class DrinkServiceImpl implements DrinkServices{
     @Autowired
     DrinkRepository drinkRepository;
     @Override
@@ -32,9 +33,12 @@ public class DrinkServiceImpl implements DrinkService{
     }
 
     @Override
-    public List<Drink> getAllDrink() {
+    public List<Drink> getAllDrinks() {
         return drinkRepository.findAll();
+
     }
+
+
 
 
     @Override
@@ -49,7 +53,7 @@ public class DrinkServiceImpl implements DrinkService{
             updateDrink.setType(drink.getType());
             updateDrink.setCompany(drink.getCompany());
             updateDrink.setId(drink.getId());
-            updateDrink.setIngredients(drink.getIngredients());
+            updateDrink.setIngredientList(drink.getIngredientList());
 
             drinkRepository.save(updateDrink);
             return updateDrink;

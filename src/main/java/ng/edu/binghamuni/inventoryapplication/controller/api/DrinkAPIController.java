@@ -23,6 +23,6 @@ public class DrinkAPIController {
     @RequestMapping("/drinks")
     @GetMapping("/drinks")
     public ResponseEntity<List<Drink>> getAllDrink(){
-        return Repository.ok().body(drinkServices.getAllDrinks());
+        return ResponseEntity.ok().body(drinkServices.getAllDrinks());
     }
 }
